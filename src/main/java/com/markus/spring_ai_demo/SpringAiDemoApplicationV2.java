@@ -36,6 +36,9 @@ public class SpringAiDemoApplicationV2 {
     @Autowired
     @Qualifier("promptTemplatesChatServiceImpl")
     private ChatService promptTemplatesChatService;
+    @Autowired
+    @Qualifier("customPromptTemplatesChatServiceImpl")
+    private ChatService customPromptTemplatesChatService;
 
 
     public static void main(String[] args) {
@@ -57,7 +60,8 @@ public class SpringAiDemoApplicationV2 {
 //                System.out.println(chatService.chat(modelId, prompt));
 //                System.out.println(structuredOutputChatService.chat(modelId, prompt));
 //                System.out.println(streamResponseChatService.chat(modelId, prompt));
-                System.out.println(promptTemplatesChatService.chat(modelId, prompt));
+//                System.out.println(promptTemplatesChatService.chat(modelId, prompt));
+                System.out.println(customPromptTemplatesChatService.chat(modelId, prompt));
                 System.out.println("请选择你要对话的模型: ");
             }
         };

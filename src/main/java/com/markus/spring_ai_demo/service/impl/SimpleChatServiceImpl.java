@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @Blog: https://markuszhang.com
  * It's my honor to share what I've learned with you!
  */
-@Service
+@Service("simpleChatServiceImpl")
 public class SimpleChatServiceImpl implements ChatService {
 
     @Autowired

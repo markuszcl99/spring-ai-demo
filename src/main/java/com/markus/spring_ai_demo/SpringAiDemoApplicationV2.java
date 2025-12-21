@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
@@ -29,7 +30,11 @@ public class SpringAiDemoApplicationV2 {
     @Autowired
     private MultiModelService modelService;
     @Autowired
+    @Qualifier("simpleChatServiceImpl")
     private ChatService chatService;
+    @Autowired
+    @Qualifier("structuredOutputChatServiceImpl")
+    private ChatService structuredOutputChatService;
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(SpringAiDemoApplicationV2.class);
@@ -48,6 +53,8 @@ public class SpringAiDemoApplicationV2 {
                 System.out.println("请输入你的问题: ");
                 String prompt = scanner.next();
                 System.out.println(chatService.chat(modelId, prompt));
+                System.out.println(structuredOutputChatService.chat(modelId, prompt));
+                System.out.println("请选择你要对话的模型: ");
             }
         };
     }

@@ -35,6 +35,9 @@ public class SpringAiDemoApplicationV2 {
     @Autowired
     @Qualifier("structuredOutputChatServiceImpl")
     private ChatService structuredOutputChatService;
+    @Autowired
+    @Qualifier("streamResponseChatServiceImpl")
+    private ChatService streamResponseChatServiceImpl;
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(SpringAiDemoApplicationV2.class);
@@ -52,8 +55,9 @@ public class SpringAiDemoApplicationV2 {
                 String modelId = scanner.next();
                 System.out.println("请输入你的问题: ");
                 String prompt = scanner.next();
-                System.out.println(chatService.chat(modelId, prompt));
-                System.out.println(structuredOutputChatService.chat(modelId, prompt));
+//                System.out.println(chatService.chat(modelId, prompt));
+//                System.out.println(structuredOutputChatService.chat(modelId, prompt));
+                System.out.println(streamResponseChatServiceImpl.chat(modelId, prompt));
                 System.out.println("请选择你要对话的模型: ");
             }
         };

@@ -32,7 +32,7 @@ public class StructuredOutputChatServiceImpl implements ChatService {
     @Override
     public String chat(String modelId, String prompt) throws JsonProcessingException {
         ChatModel chatModel = modelService.getChatModel(modelId);
-        List<ActorFilms> entity = ChatClient.builder(chatModel).defaultAdvisors(AdvisorParams.ENABLE_NATIVE_STRUCTURED_OUTPUT).build().prompt(prompt).call().entity(new ParameterizedTypeReference<List<ActorFilms>>() {
+        List<ActorFilms> entity = ChatClient.builder(chatModel).defaultAdvisors(AdvisorParams.ENABLE_NATIVE_STRUCTURED_OUTPUT).build().prompt().user(prompt).call().entity(new ParameterizedTypeReference<List<ActorFilms>>() {
         });
         return om.writeValueAsString(entity);
     }

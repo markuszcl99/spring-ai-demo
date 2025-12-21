@@ -23,6 +23,6 @@ public class SimpleChatServiceImpl implements ChatService {
     @Override
     public String chat(String modelId, String prompt) {
         ChatModel chatModel = modelService.getChatModel(modelId);
-        return ChatClient.builder(chatModel).build().prompt(prompt).call().content();
+        return ChatClient.builder(chatModel).build().prompt().user(prompt).call().content();
     }
 }

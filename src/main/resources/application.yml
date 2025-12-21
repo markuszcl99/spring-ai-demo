@@ -1,0 +1,13 @@
+markus:
+  ai:
+    models:
+      qwen-plus:
+        base-url: https://dashscope.aliyuncs.com/compatible-mode/
+        api-key: ${DASHSCOPE_API_KEY}
+        model-name: qwen-plus
+        model-id: qwen-plus
+      deepseek-chat:
+        base-url: https://api.deepseek.com/
+        api-key: ${DEEPSEEK_API_KEY}
+        model-name: deepseek-chat
+        model-id: deepseek-chat
